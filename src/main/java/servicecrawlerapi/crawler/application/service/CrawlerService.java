@@ -10,8 +10,10 @@ import servicecrawlerapi.crawler.domain.Feed;
 import servicecrawlerapi.crawler.domain.Item;
 import servicecrawlerapi.crawler.domain.Page;
 
+import javax.lang.model.util.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,11 +30,11 @@ public class CrawlerService {
         try {
             Element doc = Jsoup.connect(url).get();
             doc.select("item").forEach( it -> {
-                    items.add(Item.builder()
-                            .title(it.select("title").text())
-                            .link(it.select("link").text())
-                            .content(builderContentImages(it.select("description").text()))
-                            .build());
+                items.add(Item.builder()
+                        .title(it.select("title").text())
+                        .link(it.select("link").text())
+                        .content(builderContent(it.select("description").text()))
+                        .build());
             });
             feed.setItem(items);
         } catch (IOException e) {
@@ -43,17 +45,38 @@ public class CrawlerService {
         return page;
     }
 
-  private List<Content> builderContentImages(String type) {
-      Document doc = Jsoup.parse(type).normalise();
-      List<String> src = new ArrayList<>();
-      List<Content> contents = new ArrayList<>();
-      Content content = Content.builder().type("image").build();
-      doc.select("img").forEach( desc -> {
-          src.add(desc.attr("src"));
-          content.setContent(src);
-      });
-      contents.add(content);
-      return contents;
-  }
+    private List<Content> builderContent(String type) {
+        Document doc = Jsoup.parse(type).normalise();
+        List<Content> contents = new ArrayList<>();
+
+        doc.select("body").forEach( desc -> {
+            desc.childNodes().forEach(bodyChild -> {
+                bodyChild.childNodes().forEach(parentBody -> {
+                    if (bodyChild.nodeName().equals("div") && parentBody.nodeName().equals("img")){
+                        List<String> src = new ArrayList<>();
+                        Content content = Content.builder().type("image").build();
+                        src.add(parentBody.attr("src"));
+                        content.setContent(src);
+                        contents.add(content);
+                    }
+
+                    if(bodyChild.nodeName().equals("p") && !parentBody.toString().equals(" &nbsp;")){
+
+                        List<String> src = new ArrayList<>();
+                        Content content = Content.builder().type("text").build();
+                        if(parentBody instanceof Element){
+                            src.add(((Element) parentBody).select(((Element) parentBody).tagName()).text());
+                        } else {
+                            src.add(parentBody.toString());
+                        }
+                        content.setContent(src);
+                        contents.add(content);
+                    }
+                });
+            });
+        });
+
+        return contents;
+    }
 
 }
