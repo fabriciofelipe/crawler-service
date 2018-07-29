@@ -59,6 +59,11 @@ public class CrawlerService {
         return page;
     }
 
+    /**
+     * Metodo de construção do Bloco Content
+     * @param type
+     * @return
+     */
     private List<Content> builderContent(String type) {
         Document doc = Jsoup.parse(type).normalise();
         List<Content> contents = new ArrayList<>();
