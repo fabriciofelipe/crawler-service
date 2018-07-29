@@ -31,7 +31,6 @@ public class CrawlerServiceTests {
 		String url = "https://revistaautoesporte.globo.com/rss/ultimas/feed.xml";
 
 		// when
-
 		Optional<Page> page =crawlerService.getFeed(url);
 
 		// then
@@ -59,8 +58,8 @@ public class CrawlerServiceTests {
 	public void getFeedException() {
 		// given
 		String url = "https://httpstat.us/500";
-		// when
 
+		// when
 		Optional<Page> page =crawlerService.getFeed(url);
 
 		// then
