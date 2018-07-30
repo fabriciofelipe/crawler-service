@@ -1,4 +1,4 @@
-package servicecrawlerapi.crawler.domain;
+package application.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

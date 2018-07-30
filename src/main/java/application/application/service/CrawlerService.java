@@ -1,22 +1,22 @@
-package servicecrawlerapi.crawler.application.service;
+package application.application.service;
 
+import application.domain.Content;
+import application.domain.Item;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.springframework.stereotype.Service;
-import servicecrawlerapi.crawler.domain.Content;
-import servicecrawlerapi.crawler.domain.Feed;
-import servicecrawlerapi.crawler.domain.Item;
-import servicecrawlerapi.crawler.domain.Page;
+import application.domain.Feed;
+import application.domain.Page;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static servicecrawlerapi.crawler.application.util.HtmlConstants.*;
+import static application.application.util.HtmlConstants.*;
 
 
 /**

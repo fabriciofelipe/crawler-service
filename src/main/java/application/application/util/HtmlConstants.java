@@ -1,4 +1,4 @@
-package servicecrawlerapi.crawler.application.util;
+package application.application.util;
 
 public class HtmlConstants {
 

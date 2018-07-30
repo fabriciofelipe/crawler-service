@@ -1,15 +1,15 @@
-package servicecrawlerapi.crawler;
+package application.rest;
 
+import application.application.service.CrawlerService;
+import application.domain.Content;
+import application.domain.Item;
+import application.domain.Page;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import servicecrawlerapi.crawler.application.service.CrawlerService;
-import servicecrawlerapi.crawler.domain.Content;
-import servicecrawlerapi.crawler.domain.Feed;
-import servicecrawlerapi.crawler.domain.Item;
-import servicecrawlerapi.crawler.domain.Page;
+import application.domain.Feed;
 
 import java.util.Arrays;
 import java.util.Collections;
