@@ -13,7 +13,7 @@ jsoup 1.8.3 \
 lombok 1.16.22 \
 spring-boot-starter-security 2.0.3.RELEASE \
 spring-boot-starter-test 2.0.3.RELEASE \
-spring-security-test  2.0.3.RELEASE \
+spring-security-test  2.0.3.RELEASE 
 
 # Exemplo de Request Post para a chamado do serviço Rest 
  curl -X POST \
