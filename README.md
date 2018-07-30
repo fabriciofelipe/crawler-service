@@ -4,16 +4,16 @@ Api rest que implementa um crawler que a partir de uma URL Ex:(http://revistaaut
 
 # Tecnologias Utilizadas:
 
-Linguagem: Java 8
-Gerenciadr de Dependências: Maven
+Linguagem: Java 8 \
+Gerenciador de Dependências: Maven
 
 # FrameWorks' e Lib's: 
-spring-boot-starter 2.0.3.RELEASE
-jsoup 1.8.3
-lombok 1.16.22
-spring-boot-starter-security 2.0.3.RELEASE
-spring-boot-starter-test 2.0.3.RELEASE
-spring-security-test  2.0.3.RELEASE
+spring-boot-starter 2.0.3.RELEASE \
+jsoup 1.8.3 \
+lombok 1.16.22 \
+spring-boot-starter-security 2.0.3.RELEASE \
+spring-boot-starter-test 2.0.3.RELEASE \
+spring-security-test  2.0.3.RELEASE \
 
 # Exemplo de Request Post para a chamado do serviço Rest 
  curl -X POST \
