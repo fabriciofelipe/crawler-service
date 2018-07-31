@@ -1,4 +1,4 @@
-package application.rest;
+package application.service;
 
 import application.application.service.CrawlerService;
 import application.domain.Content;

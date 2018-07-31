@@ -1,4 +1,4 @@
-package application.service;
+package application.rest;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -71,7 +71,7 @@ public class CrawlerControllerTest {
                 .andExpect(status().isNotFound());
     }
     @Test
-    public void getFeed_thenStatus405() throws Exception {
+    public void getFeed_thenStatus401() throws Exception {
 
         //given
         Map<String, String> body = Collections.singletonMap("url", "https://revistaautoesporte.globo.com/rss/ultimas/feed.xml");
